@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48" height="48"
+ viewBox="0 0 48 48"
+ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" baseProfile="tiny">
+<title>solid_intersect</title>
+<desc>IngeTrazo icon, written again at each start. Copy it to make your own.</desc>
+<defs>
+</defs>
+<g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="0.54902" stroke-dasharray="7.2,3.6" stroke-dashoffset="0" stroke-width="1.8" stroke-linecap="butt" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<path vector-effect="none" fill-rule="evenodd" d="M30.5,20 C30.5,26.9036 24.9036,32.5 18,32.5 C11.0964,32.5 5.5,26.9036 5.5,20 C5.5,13.0964 11.0964,7.5 18,7.5 C24.9036,7.5 30.5,13.0964 30.5,20 Z "/>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="0.54902" stroke-dasharray="7.2,3.6" stroke-dashoffset="0" stroke-width="1.8" stroke-linecap="butt" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<path vector-effect="none" fill-rule="evenodd" d="M42.5,28 C42.5,34.9036 36.9036,40.5 30,40.5 C23.0964,40.5 17.5,34.9036 17.5,28 C17.5,21.0964 23.0964,15.5 30,15.5 C36.9036,15.5 42.5,21.0964 42.5,28 Z "/>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#16a34a" fill-opacity="0.588235" stroke="#1f5fbf" stroke-opacity="1" stroke-width="2.6" stroke-linecap="square" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<path vector-effect="none" fill-rule="evenodd" d="M30.5,20 L30.3859,21.6962 L30.0535,23.323 L29.5177,24.8656 L28.7934,26.309 L27.8955,27.6384 L26.8388,28.8388 L25.6384,29.8955 L24.309,30.7934 L22.8656,31.5177 L21.323,32.0535 L19.6962,32.3859 L18.3472,32.4766 L17.9465,31.323 L17.6141,29.6962 L17.5,28 L17.6141,26.3038 L17.9465,24.677 L18.4823,23.1344 L19.2066,21.691 L20.1045,20.3616 L21.1612,19.1612 L22.3616,18.1045 L23.691,17.2066 L25.1344,16.4823 L26.677,15.9465 L28.3038,15.6141 L29.6528,15.5234 L30.0535,16.677 L30.3859,18.3038 L30.5,20 Z "/>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+</g>
+</svg>

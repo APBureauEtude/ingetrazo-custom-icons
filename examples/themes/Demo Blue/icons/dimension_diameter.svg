@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48" height="48"
+ viewBox="0 0 48 48"
+ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" baseProfile="tiny">
+<title>dimension_diameter</title>
+<desc>IngeTrazo icon, written again at each start. Copy it to make your own.</desc>
+<defs>
+</defs>
+<g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#16a34a" stroke-opacity="1" stroke-width="3.2" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<circle cx="24" cy="24" r="14"/>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<polyline fill="none" vector-effect="none" points="24,24 30.5114,18.5363 " />
+</g>
+
+<g fill="#1f5fbf" fill-opacity="1" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<polygon fill-rule="evenodd" vector-effect="none" points="34.7246,15.001 32.67,22.6646 26.8206,15.6936 " />
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="2.2" stroke-linecap="butt" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<polyline fill="none" vector-effect="none" points="24,24 17.4886,29.4637 " />
+</g>
+
+<g fill="#1f5fbf" fill-opacity="1" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<polygon fill-rule="evenodd" vector-effect="none" points="13.2754,32.999 15.33,25.3354 21.1794,32.3064 " />
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+</g>
+</svg>

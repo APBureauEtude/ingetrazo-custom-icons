@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48" height="48"
+ viewBox="0 0 48 48"
+ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" baseProfile="tiny">
+<title>rotate</title>
+<desc>IngeTrazo icon, written again at each start. Copy it to make your own.</desc>
+<defs>
+</defs>
+<g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<path vector-effect="none" fill-rule="evenodd" d="M13.7988,19.8769 C15.4312,15.8439 19.3835,13 24,13 C28.7527,13 32.8015,16.0142 34.3382,20.2333 "/>
+<path vector-effect="none" fill-rule="evenodd" d="M34.2012,28.1231 C32.5688,32.1561 28.6165,35 24,35 C19.2473,35 15.1985,31.9858 13.6618,27.7667 "/>
+<polyline fill="none" vector-effect="none" points="34.3366,20.2378 35.688,13.8798 " />
+<polyline fill="none" vector-effect="none" points="34.3366,20.2378 29.2145,16.236 " />
+<polyline fill="none" vector-effect="none" points="13.6634,27.7622 12.312,34.1202 " />
+<polyline fill="none" vector-effect="none" points="13.6634,27.7622 18.7855,31.764 " />
+</g>
+
+<g fill="#16a34a" fill-opacity="1" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<circle cx="24" cy="24" r="2.4"/>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+</g>
+</svg>

@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custom icons</title>
+<link rel="icon" href="data:,">
+<style>
+:root {
+  --bg: #f3f4f6; --panel: #ffffff; --ink: #1f2328; --muted: #667085;
+  --line: #d9dde3; --accent: #f37329; --accent-soft: #fde9dc;
+  --drop: #2a7de1; --drop-soft: #e3eefc; --cell: #ffffff; --danger: #c0392b;
+  --pool-w: 38%;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15171b; --panel: #1e2126; --ink: #e6e8eb; --muted: #9aa3ad;
+    --line: #353a42; --accent-soft: #46291a; --drop-soft: #1b2c44;
+    --danger: #ff7a6b;
+  }
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0; display: flex; flex-direction: column;
+  font: 14px/1.4 system-ui, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg); color: var(--ink);
+}
+body.resizing { cursor: col-resize; user-select: none; }
+header {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px;
+  padding: 10px 16px; background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+h1 { font-size: 17px; margin: 0 6px 0 0; }
+.group { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.group > b { font-weight: 600; }
+.sep { width: 1px; align-self: stretch; background: var(--line); }
+.help { flex-basis: 100%; margin: 0; color: var(--muted); font-size: 13px; }
+.status { margin-left: auto; font-size: 13px; color: var(--muted); }
+.status.error { color: var(--danger); font-weight: 600; }
+button, select {
+  font: inherit; padding: 5px 10px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+}
+select { max-width: 100%; }
+#saves { max-width: 260px; }
+button:hover:not(:disabled), select:hover:not(:disabled) { border-color: var(--accent); }
+button:disabled, select:disabled { opacity: .45; cursor: default; }
+.langs { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.langs button { border: 0; border-radius: 0; padding: 5px 9px; font-size: 13px; font-weight: 600; }
+.langs button + button { border-left: 1px solid var(--line); }
+.langs button.on { background: var(--accent); color: #fff; }
+input[type=search] {
+  font: inherit; padding: 5px 8px; border-radius: 6px; min-width: 0;
+  border: 1px solid var(--line); background: var(--bg); color: var(--ink);
+}
+main {
+  flex: 1; min-height: 0; display: grid;
+  grid-template-columns: minmax(0, 1fr) 9px var(--pool-w);
+}
+.slots { overflow: auto; padding: 0 16px 24px; }
+.slots-tools { position: sticky; top: 0; z-index: 1; padding: 10px 0 6px;
+  background: var(--bg); }
+.slots-tools input { width: 100%; max-width: 360px; }
+h2 {
+  font-size: 12px; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--muted); margin: 18px 0 6px;
+}
+.row {
+  display: grid; align-items: center; gap: 10px; margin-bottom: 4px;
+  grid-template-columns: 46px minmax(0, 1fr) 16px 46px minmax(0, 1fr) 30px;
+  padding: 4px 8px; border-radius: 8px; background: var(--panel);
+  border: 1px solid transparent; max-width: 780px;
+}
+.row.target { border-color: var(--drop); background: var(--drop-soft); }
+.row[hidden] { display: none; }
+.cell {
+  position: relative; width: 46px; height: 46px; border-radius: 6px;
+  background: var(--cell); border: 1px solid var(--line);
+  display: grid; place-items: center; overflow: hidden;
+}
+.cell img { width: 34px; height: 34px; object-fit: contain; }
+.slot { border-style: dashed; cursor: pointer; }
+.slot.filled { border-style: solid; cursor: grab; }
+.selected { outline: 3px solid var(--accent); outline-offset: 1px; }
+.name b { display: block; overflow: hidden; text-overflow: ellipsis;
+  white-space: nowrap; font-weight: 600; }
+.name small, .file {
+  font-family: ui-monospace, Consolas, monospace; font-size: 11.5px;
+  color: var(--muted); overflow: hidden; text-overflow: ellipsis;
+  white-space: nowrap; display: block;
+}
+.std { font-size: 10px; color: #667085; text-align: center; line-height: 1.1; }
+.arrow { color: var(--muted); text-align: center; }
+.clear { padding: 2px 7px; color: var(--muted); }
+.clear:hover { color: var(--danger); border-color: var(--danger); }
+.splitter {
+  cursor: col-resize; touch-action: none; background: var(--panel);
+  border-left: 1px solid var(--line); border-right: 1px solid var(--line);
+  position: relative;
+}
+.splitter::after {
+  content: ""; position: absolute; left: 3px; top: 50%; width: 1px;
+  height: 36px; margin-top: -18px; border-left: 1px solid var(--muted);
+  border-right: 1px solid var(--muted); opacity: .6;
+}
+.splitter:hover, .splitter:focus-visible, body.resizing .splitter {
+  background: var(--accent-soft); outline: none;
+}
+.pool {
+  min-height: 0; display: flex; flex-direction: column; gap: 8px;
+  padding: 10px 12px; background: var(--panel);
+}
+.pool.target { background: var(--drop-soft); }
+.pool h2 { margin: 0; }
+.pool-tools { display: flex; flex-wrap: wrap; gap: 6px; }
+.pool-tools input { flex: 1 1 140px; }
+.pool-tools select { flex: 1 1 140px; }
+.grid {
+  flex: 1; min-height: 0; overflow: auto; align-content: start;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 6px;
+}
+.tile {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  padding: 5px 2px; border-radius: 8px; cursor: grab;
+  border: 1px solid transparent;
+}
+.tile:hover { border-color: var(--line); }
+.tile[hidden] { display: none; }
+.tile .cell { width: 52px; height: 52px; }
+.tile .cell img { width: 40px; height: 40px; }
+.tile.used .cell { border-color: var(--accent); }
+.badge {
+  position: absolute; top: 1px; right: 1px; min-width: 16px; height: 16px;
+  padding: 0 4px; border-radius: 8px; background: var(--accent); color: #fff;
+  font-size: 10px; font-weight: 700; line-height: 16px; text-align: center;
+}
+.badge[hidden] { display: none; }
+.tile span {
+  font-size: 10.5px; color: var(--muted); max-width: 70px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.hint { margin: 0; font-size: 12.5px; color: var(--muted); }
+.hint[hidden], #importshown[hidden] { display: none; }
+#importshown { align-self: flex-start; border-color: var(--accent); }
+.pool.files { outline: 3px dashed var(--drop); outline-offset: -6px; }
+.empty { color: var(--muted); padding: 12px 4px; margin: 0; }
+.empty[hidden] { display: none; }
+@media (max-width: 760px) {
+  html, body { height: auto; }
+  body { display: block; }
+  main { display: block; }
+  .splitter, .sep { display: none; }
+  .slots { overflow: visible; }
+  .pool { border-top: 1px solid var(--line); }
+  .grid { max-height: 60vh; }
+  .row { grid-template-columns: 46px minmax(0, 1fr) 46px 30px; }
+  .row .arrow, .row .file { display: none; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="title">Custom icons</h1>
+  <label class="group"><b id="themelabel"></b> <select id="theme"></select></label>
+  <button id="suggest" type="button"></button>
+  <button id="clearall" type="button"></button>
+  <span class="sep"></span>
+  <div class="group">
+    <b id="saveslabel"></b>
+    <select id="saves"></select>
+    <button id="load" type="button"></button>
+    <button id="delete" type="button"></button>
+    <button id="saveas" type="button"></button>
+  </div>
+  <span class="sep"></span>
+  <button id="openfolder" type="button"></button>
+  <button id="refresh" type="button"></button>
+  <span id="status" class="status" role="status"></span>
+  <div id="langs" class="langs" role="group"></div>
+  <p id="help" class="help"></p>
+</header>
+<main id="main">
+  <section class="slots">
+    <div class="slots-tools"><input id="slotq" type="search"></div>
+    <div id="slots"></div>
+  </section>
+  <div id="splitter" class="splitter" role="separator" aria-orientation="vertical" tabindex="0"></div>
+  <aside id="pool" class="pool">
+    <h2 id="poolhead"></h2>
+    <div class="pool-tools">
+      <select id="libtheme"></select>
+      <button id="importfiles" type="button"></button>
+      <input id="filepick" type="file" accept=".svg,image/svg+xml" multiple hidden>
+    </div>
+    <p id="libhint" class="hint" hidden></p>
+    <div class="pool-tools">
+      <input id="poolq" type="search">
+      <select id="folder"></select>
+    </div>
+    <button id="importshown" type="button" hidden></button>
+    <p id="poolempty" class="empty" hidden></p>
+    <div id="grid" class="grid"></div>
+  </aside>
+</main>
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const LANGS = ["fr", "en", "es"];
+let S = null;                       // the state the server sent
+let lang = "en";
+let libTheme = null;                // the theme the library shows
+let libPool = [];                   // its icons (paths in it)
+const IMPORTS = "Importées";        // where icons brought in go, in a theme
+let mapping = { icons: {}, cursors: {} };
+let selected = null;                // a click picks {name, slot}; the next places it
+const rows = new Map();             // slot id → {row, label, slot, file, clear, name, s}
+const tiles = new Map();            // path in the theme → {tile, badge}
+const headings = [];                // [h2, group]
+
+const t = (key, vars) => {               // vars: a {name} string, or {name, n}
+  let text = (S && S.texts[lang] && S.texts[lang][key]) || key;
+  if (typeof vars === "string") vars = { name: vars };
+  for (const [k, v] of Object.entries(vars || {})) text = text.split("{" + k + "}").join(v);
+  return text;
+};
+const encodePath = (path) => path.split("/").map(encodeURIComponent).join("/");
+const customUrl = (path) => "custom/" + encodePath(path);
+const libUrl = (path) => (libTheme === S.theme ? customUrl(path)
+  : "file/" + encodeURIComponent(libTheme) + "/" + encodePath(path));
+// Where an icon of the library is, once in the theme in use.
+const inTheme = (path) => (libTheme === S.theme ? path : IMPORTS + "/" + libTheme + "/" + path);
+const shortName = (path) => path.replace(/\.svg$/i, "");
+const baseName = (path) => shortName(path).split("/").pop();
+const folderOf = (path) => (path.includes("/") ? path.slice(0, path.lastIndexOf("/")) : "");
+const group = (id) => id.slice(0, id.indexOf(":"));
+const key = (id) => id.slice(id.indexOf(":") + 1);
+const get = (id) => mapping[group(id)][key(id)] || null;
+function put(id, name) {
+  if (name) mapping[group(id)][key(id)] = name;
+  else delete mapping[group(id)][key(id)];
+}
+function el(tag, attrs, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (v === null || v === undefined || v === false) continue;
+    if (k === "class") e.className = v;
+    else e.setAttribute(k, v === true ? "" : v);
+  }
+  for (const kid of kids) if (kid !== null && kid !== undefined) e.append(kid);
+  return e;
+}
+function uses() {                       // how many tools each icon serves
+  const n = new Map();
+  for (const g of ["icons", "cursors"])
+    for (const v of Object.values(mapping[g])) n.set(v, (n.get(v) || 0) + 1);
+  return n;
+}
+function copy(m) {
+  return { icons: { ...(m.icons || {}) }, cursors: { ...(m.cursors || {}) } };
+}
+function store(name, value) {           // conveniences: width, language
+  try { if (value === null) localStorage.removeItem(name); else localStorage.setItem(name, value); }
+  catch { /* private window: forget it */ }
+}
+function recall(name) {
+  try { return localStorage.getItem(name); } catch { return null; }
+}
+
+// ---- Moves --------------------------------------------------------------
+// payload = {name, slot, from}: slot is null when the icon comes from the
+// library, which keeps it — one icon may serve several tools; `from` is the
+// library's theme. An icon of another theme is first copied into this one.
+async function place(payload, target) {
+  if (!S.theme) return;
+  if (target !== null && !payload.slot && payload.from && payload.from !== S.theme) {
+    try {
+      await queue;
+      const answer = await call("import", { theme: S.theme, from: payload.from,
+                                            paths: [payload.name] });
+      S.pool = answer.pool;
+      payload = { name: answer.paths[0], slot: null };
+    } catch (e) { failed(e); return; }
+  }
+  if (target === null) {                 // dropped back on the library
+    if (payload.slot) put(payload.slot, null);
+  } else if (payload.slot) {             // from one tool to another: swap
+    if (payload.slot === target) { select(null); return; }
+    const other = get(target);
+    put(target, payload.name);
+    put(payload.slot, other);
+  } else {
+    put(target, payload.name);
+  }
+  selected = null;
+  refresh();
+  save();
+}
+function select(payload) {
+  selected = payload;
+  for (const [id, r] of rows)
+    r.slot.classList.toggle("selected", !!(payload && payload.slot === id));
+  for (const [path, x] of tiles)
+    x.tile.firstChild.classList.toggle(
+      "selected", !!(payload && !payload.slot && payload.name === path));
+}
+function dragStart(e, payload) {
+  e.dataTransfer.setData("application/x-custom-icon", JSON.stringify(payload));
+  e.dataTransfer.setData("text/plain", payload.name);
+  e.dataTransfer.effectAllowed = "copyMove";
+}
+function dropZone(node, onDrop) {
+  node.addEventListener("dragover", (e) => {
+    if (!S.theme || !e.dataTransfer.types.includes("application/x-custom-icon")) return;
+    e.preventDefault();
+    node.classList.add("target");
+  });
+  node.addEventListener("dragleave", (e) => {
+    if (!node.contains(e.relatedTarget)) node.classList.remove("target");
+  });
+  node.addEventListener("drop", (e) => {
+    e.preventDefault();
+    node.classList.remove("target");
+    let payload = null;
+    try { payload = JSON.parse(e.dataTransfer.getData("application/x-custom-icon")); }
+    catch { return; }
+    if (payload) onDrop(payload);
+  });
+}
+
+// ---- Talking to IngeTrazo -----------------------------------------------
+let queue = Promise.resolve();
+let pending = 0;
+function status(text, error) {
+  $("status").textContent = text;
+  $("status").classList.toggle("error", !!error);
+}
+function post(route, data) {
+  return fetch(route, { method: "POST", body: JSON.stringify(data || {}),
+                        headers: { "Content-Type": "application/json" } });
+}
+async function call(route, data) {      // a POST answered with the new state
+  const r = await post(route, data);
+  if (r.status === 409) throw new Error("theme");
+  if (!r.ok) throw new Error(String(r.status));
+  return r.json();
+}
+function failed(e) {
+  status(t(e && e.message === "theme" ? "The theme was changed elsewhere: reload this page."
+                                      : "Not saved: is IngeTrazo still open?"), true);
+}
+function save() {
+  const body = { theme: S.theme, ...mapping };
+  pending += 1;
+  status(t("Saving…"));
+  queue = queue
+    .then(() => call("mapping", body))
+    .then(() => { pending -= 1; if (!pending) status(t("Saved — IngeTrazo is up to date.")); })
+    .catch((e) => { pending = 0; failed(e); });
+}
+async function fetchState() {
+  const r = await fetch("state");
+  if (!r.ok) throw new Error(String(r.status));
+  return r.json();
+}
+
+// ---- Building and refreshing --------------------------------------------
+function buildRows() {
+  const list = $("slots");
+  for (const g of ["icons", "cursors"]) {
+    const h = el("h2");
+    headings.push([h, g]);
+    list.append(h);
+    for (const s of S.slots.filter((x) => x.group === g)) {
+      const original = s.original
+        ? el("img", { src: s.original, alt: "" })
+        : el("span", { class: "std" });
+      const label = el("b");
+      const slot = el("div", { class: "cell slot" });
+      const file = el("span", { class: "file" });
+      const clear = el("button", { class: "clear", type: "button" }, "✕");
+      const row = el("div", { class: "row" },
+        el("div", { class: "cell" }, original),
+        el("div", { class: "name" }, label, el("small", {}, s.key)),
+        el("div", { class: "arrow" }, "→"), slot, file, clear);
+      slot.addEventListener("dragstart", (e) => {
+        const name = get(s.id);
+        if (name) dragStart(e, { name, slot: s.id });
+      });
+      slot.addEventListener("click", () => {
+        const name = get(s.id);
+        if (selected) place(selected, s.id);
+        else if (name) select({ name, slot: s.id });
+      });
+      clear.addEventListener("click", () => {
+        const name = get(s.id);
+        if (name) place({ name, slot: s.id }, null);
+      });
+      dropZone(row, (payload) => place(payload, s.id));
+      rows.set(s.id, { row, label, slot, file, clear, name: undefined, s });
+      list.append(row);
+    }
+  }
+}
+function buildPool() {
+  const grid = $("grid");
+  grid.replaceChildren();
+  tiles.clear();
+  const from = libTheme;
+  for (const path of libPool) {
+    const badge = el("span", { class: "badge", hidden: true });
+    const tile = el("div", { class: "tile", draggable: "true" },
+      el("div", { class: "cell" }, el("img", { src: libUrl(path), alt: "", loading: "lazy" }), badge),
+      el("span", {}, baseName(path)));
+    tile.addEventListener("dragstart", (e) => dragStart(e, { name: path, slot: null, from }));
+    tile.addEventListener("click", () => {
+      const same = selected && !selected.slot && selected.name === path;
+      select(same ? null : { name: path, slot: null, from });
+    });
+    tiles.set(path, { tile, badge });
+    grid.append(tile);
+  }
+  buildFolders();
+}
+function buildFolders() {               // the folder filter, in the page's language
+  const counts = new Map();
+  for (const path of libPool) counts.set(folderOf(path), (counts.get(folderOf(path)) || 0) + 1);
+  const sel = $("folder");
+  // An empty list reads as "" — the theme's own folder: start on all of them.
+  const keep = sel.options.length ? sel.value : "*";
+  sel.replaceChildren(el("option", { value: "*" }, t("All folders") + " (" + libPool.length + ")"));
+  for (const f of [...counts.keys()].sort((a, b) => a.localeCompare(b)))
+    sel.append(el("option", { value: f }, (f || libTheme) + " (" + counts.get(f) + ")"));
+  sel.value = [...sel.options].some((o) => o.value === keep) ? keep : "*";
+  sel.hidden = !libPool.length;
+  const empty = $("poolempty");
+  const message = !S.themes.length ? t("no themes")
+    : !S.theme ? t("IngeTrazo's own icons are in use. Choose a theme to pair icons.")
+    : !libPool.length ? t("This theme has no SVG files yet.") : "";
+  empty.textContent = message;
+  empty.hidden = !message;
+}
+function buildLibThemes() {             // which theme the library shows
+  const sel = $("libtheme");
+  sel.replaceChildren();
+  for (const name of S.themes)
+    sel.append(el("option", { value: name }, name === S.theme ? t("{name} (this theme)", name) : name));
+  sel.value = libTheme || "";
+  sel.hidden = !S.theme || S.themes.length < 2;
+  $("importfiles").hidden = !S.theme;
+  $("libhint").hidden = !S.theme || libTheme === S.theme;
+}
+async function showLibrary(theme) {
+  if (theme === S.theme) {
+    libTheme = S.theme;
+    libPool = S.pool;
+  } else {
+    const r = await fetch("library/" + encodeURIComponent(theme));
+    if (!r.ok) throw new Error(String(r.status));
+    const answer = await r.json();
+    libTheme = answer.theme;
+    libPool = answer.pool;
+  }
+  $("folder").value = "*";
+  buildLibThemes();
+  buildPool();
+  refresh();
+}
+function buildThemes() {
+  const sel = $("theme");
+  sel.replaceChildren(el("option", { value: "" }, t("None — IngeTrazo's own icons")));
+  for (const name of S.themes) sel.append(el("option", { value: name }, name));
+  sel.value = S.theme || "";
+  $("suggest").disabled = $("clearall").disabled = $("saveas").disabled = !S.theme;
+}
+function buildSaves(choose) {
+  const sel = $("saves");
+  const keep = choose || sel.value;
+  sel.replaceChildren();
+  if (!S.saves.length) sel.append(el("option", { value: "" }, t("No saves yet")));
+  for (const s of S.saves) {
+    let when = s.date;
+    try { when = new Date(s.date).toLocaleString(lang, { dateStyle: "short", timeStyle: "short" }); }
+    catch { /* the ISO date, then */ }
+    sel.append(el("option", { value: s.name }, s.name + " · " + when));
+  }
+  sel.value = S.saves.some((s) => s.name === keep) ? keep : (S.saves[0] ? S.saves[0].name : "");
+  sel.disabled = $("load").disabled = $("delete").disabled = !S.theme || !S.saves.length;
+}
+function refresh() {
+  const q = $("slotq").value.trim().toLowerCase();
+  for (const [id, r] of rows) {
+    const name = get(id);
+    if (r.name !== name) {               // only the rows that changed
+      r.name = name;
+      r.slot.replaceChildren(name ? el("img", { src: customUrl(name), alt: "" }) : "");
+      r.slot.classList.toggle("filled", !!name);
+      r.slot.draggable = !!name;
+      r.file.textContent = name ? shortName(name) : "—";
+      r.file.title = name ? shortName(name) : "";
+      r.clear.style.visibility = name ? "visible" : "hidden";
+    }
+    const hay = (r.s.labels[lang] + " " + r.s.key + " " + (name || "")).toLowerCase();
+    r.row.hidden = !!q && !hay.includes(q);
+  }
+  const n = uses();
+  const pq = $("poolq").value.trim().toLowerCase();
+  const folder = $("folder").value;
+  let shown = 0;
+  for (const [path, x] of tiles) {
+    const count = n.get(inTheme(path)) || 0;
+    x.tile.classList.toggle("used", count > 0);
+    x.badge.hidden = !count;
+    x.badge.textContent = count;
+    x.tile.title = shortName(path) + (count ? " — " + t("In use: {n}", { n: count }) : "");
+    x.tile.hidden = (folder !== "*" && folderOf(path) !== folder)
+      || (!!pq && !path.toLowerCase().includes(pq));
+    shown += !x.tile.hidden;
+  }
+  $("poolhead").textContent = t("Library") + (S.theme ? " (" + libPool.length + ")" : "");
+  const foreign = !!S.theme && libTheme !== S.theme;
+  $("importshown").hidden = !foreign || !shown;
+  $("importshown").textContent = shown === 1 ? t("Import the icon shown")
+    : t("Import the {n} icons shown", { n: shown });
+  select(selected && (!selected.slot || get(selected.slot) === selected.name) ? selected : null);
+}
+function applyTexts() {                 // every word of the page, in `lang`
+  document.documentElement.lang = lang;
+  document.title = $("title").textContent = t("Custom icons");
+  $("themelabel").textContent = t("Theme");
+  $("help").textContent = t("Drag an icon of the library onto a tool, or click it and then the tool. Drag one tool's icon onto another to swap them; ✕ gives a tool its own icon back.");
+  $("suggest").textContent = t("Match by file name");
+  $("clearall").textContent = t("Clear all");
+  $("saveslabel").textContent = t("Saves");
+  $("load").textContent = t("Load");
+  $("delete").textContent = t("Delete");
+  $("saveas").textContent = t("Save as…");
+  $("saveas").title = t("Keep these choices under a name, to load them again later.");
+  $("openfolder").textContent = t("open folder");
+  $("openfolder").title = t("Add icons, or a theme as a folder of its own, then press Refresh.");
+  $("refresh").textContent = "↻ " + t("Refresh");
+  $("refresh").title = t("Read the folder again after adding or changing icons.");
+  $("splitter").title = t("Drag to widen or narrow; double-click to reset.");
+  $("slotq").placeholder = t("Search tools");
+  $("poolq").placeholder = t("Search icons");
+  $("importfiles").textContent = t("Import files…");
+  $("importfiles").title = t("Add SVG files from your computer to this theme — or drop them on the library.");
+  $("libhint").textContent = t("Icons of another theme are copied into this one when you use them.");
+  $("langs").title = t("Language of this page");
+  for (const b of $("langs").children) b.classList.toggle("on", b.dataset.lang === lang);
+  for (const [h, g] of headings) {
+    const count = S.slots.filter((s) => s.group === g).length;
+    h.textContent = t(g === "icons" ? "Toolbar icons" : "3D view cursors") + " (" + count + ")";
+  }
+  for (const r of rows.values()) {
+    r.label.textContent = r.label.title = r.s.labels[lang];
+    r.clear.title = t("Back to IngeTrazo's icon");
+    r.clear.setAttribute("aria-label", t("Back to IngeTrazo's icon"));
+    const std = r.row.querySelector(".std");
+    if (std) std.textContent = t("standard arrow");
+  }
+  buildThemes();
+  buildLibThemes();
+  buildFolders();
+  buildSaves();
+  refresh();
+}
+function load(state, choose) {
+  S = state;
+  mapping = copy(S.mapping);
+  selected = null;
+  libTheme = S.theme;                   // the library shows the theme again
+  libPool = S.pool;
+  for (const r of rows.values()) r.name = undefined;   // every row redrawn
+  buildThemes();
+  buildLibThemes();
+  buildPool();
+  buildSaves(choose);
+  refresh();
+  if (S.theme && !S.saved && S.pool.length)
+    status(t("Matches by file name, in use until your first change."));
+}
+
+// ---- The resizable library ----------------------------------------------
+function poolWidth(px) {
+  const main = $("main");
+  const w = Math.round(Math.max(220, Math.min(main.clientWidth - 340, px)));
+  main.style.setProperty("--pool-w", w + "px");
+  store("customIconsPoolWidth", String(w));
+}
+function splitter() {
+  const bar = $("splitter");
+  const saved = Number(recall("customIconsPoolWidth"));
+  if (saved > 0) $("main").style.setProperty("--pool-w", saved + "px");
+  let dragging = false;
+  bar.addEventListener("pointerdown", (e) => {
+    // Once the panel widens, the press point lies over an icon: without
+    // this the browser starts dragging that icon and drops it on a tool.
+    e.preventDefault();
+    dragging = true;
+    bar.setPointerCapture(e.pointerId);
+    document.body.classList.add("resizing");
+  });
+  document.addEventListener("dragstart", (e) => { if (dragging) e.preventDefault(); }, true);
+  bar.addEventListener("pointermove", (e) => {
+    if (dragging) poolWidth($("main").getBoundingClientRect().right - e.clientX - 4);
+  });
+  const stop = () => { dragging = false; document.body.classList.remove("resizing"); };
+  bar.addEventListener("pointerup", stop);
+  bar.addEventListener("pointercancel", stop);
+  bar.addEventListener("keydown", (e) => {
+    const now = $("pool").getBoundingClientRect().width;
+    if (e.key === "ArrowLeft") { poolWidth(now + 32); e.preventDefault(); }
+    if (e.key === "ArrowRight") { poolWidth(now - 32); e.preventDefault(); }
+  });
+  bar.addEventListener("dblclick", () => {
+    $("main").style.removeProperty("--pool-w");
+    store("customIconsPoolWidth", null);
+  });
+}
+
+// ---- Saves --------------------------------------------------------------
+function defaultSaveName() {
+  const d = new Date();
+  const two = (x) => String(x).padStart(2, "0");
+  return d.getFullYear() + "-" + two(d.getMonth() + 1) + "-" + two(d.getDate())
+    + " " + two(d.getHours()) + "h" + two(d.getMinutes());
+}
+async function saveAs() {
+  const name = (prompt(t("Name of this save:"), defaultSaveName()) || "").trim();
+  if (!name) return;
+  if (S.saves.some((s) => s.name === name) && !confirm(t("Replace the save «{name}»?", name))) return;
+  try {
+    await queue;                         // the last change first
+    const state = await call("save-as", { theme: S.theme, name, ...mapping });
+    S.saves = state.saves;
+    buildSaves(state.name);
+    status(t("Saved as «{name}».", state.name));
+  } catch (e) { failed(e); }
+}
+async function loadSave() {
+  const name = $("saves").value;
+  if (!name || !confirm(t("Load «{name}»? It replaces the current choices.", name))) return;
+  try {
+    await queue;
+    load(await call("load", { theme: S.theme, name }), name);
+    status(t("«{name}» loaded — IngeTrazo is up to date.", name));
+  } catch (e) { failed(e); }
+}
+async function deleteSave() {
+  const name = $("saves").value;
+  if (!name || !confirm(t("Delete the save «{name}»?", name))) return;
+  try {
+    const state = await call("delete-save", { theme: S.theme, name });
+    S.saves = state.saves;
+    buildSaves();
+  } catch (e) { failed(e); }
+}
+
+// ---- Imports ------------------------------------------------------------
+const imported = (n) => (n === 1 ? t("1 icon imported into «{name}».", S.theme)
+  : t("{n} icons imported into «{name}».", { n, name: S.theme }));
+async function importShown() {
+  const paths = [...tiles].filter(([, x]) => !x.tile.hidden).map(([path]) => path);
+  const question = paths.length === 1
+    ? t("Import this icon into «{name}»? It is copied into its folder «Importées».", S.theme)
+    : t("Import {n} icons into «{name}»? They are copied into its folder «Importées».",
+        { n: paths.length, name: S.theme });
+  if (!paths.length || !confirm(question)) return;
+  try {
+    await queue;
+    const answer = await call("import", { theme: S.theme, from: libTheme, paths });
+    S.pool = answer.pool;
+    refresh();
+    status(imported(answer.paths.length));
+  } catch (e) { failed(e); }
+}
+function readFile(file) {                // a File as base64
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result).split(",", 2)[1] || "");
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(file);
+  });
+}
+async function uploadFiles(list) {
+  const files = [...list].filter((f) => /\.svg$/i.test(f.name) || f.type === "image/svg+xml");
+  if (!S.theme) return;
+  if (!files.length) { status(t("Not imported: only SVG files can be."), true); return; }
+  try {
+    const sent = [];
+    for (const f of files) sent.push({ name: f.name, data: await readFile(f) });
+    await queue;
+    const r = await post("upload", { theme: S.theme, files: sent });
+    if (r.status === 400) { status(t("Not imported: only SVG files can be."), true); return; }
+    if (r.status === 409) throw new Error("theme");
+    if (!r.ok) throw new Error(String(r.status));
+    const answer = await r.json();
+    S.pool = answer.pool;
+    await showLibrary(S.theme);          // show them, in their folder
+    $("folder").value = IMPORTS;
+    refresh();
+    status(imported(answer.paths.length));
+  } catch (e) { failed(e); }
+}
+function fileDrop() {                    // SVG files dropped from the computer
+  const pool = $("pool");
+  const hasFiles = (e) => [...e.dataTransfer.types].includes("Files");
+  pool.addEventListener("dragover", (e) => {
+    if (!S.theme || !hasFiles(e)) return;
+    e.preventDefault();
+    pool.classList.add("files");
+  });
+  pool.addEventListener("dragleave", (e) => {
+    if (!pool.contains(e.relatedTarget)) pool.classList.remove("files");
+  });
+  pool.addEventListener("drop", (e) => {
+    pool.classList.remove("files");
+    if (!S.theme || !hasFiles(e) || !e.dataTransfer.files.length) return;
+    e.preventDefault();
+    uploadFiles(e.dataTransfer.files);
+  });
+}
+
+function setLang(code) {
+  lang = code;
+  store("customIconsLang", code);
+  applyTexts();
+}
+
+async function start() {
+  S = await fetchState();
+  const remembered = recall("customIconsLang");
+  lang = LANGS.includes(remembered) ? remembered
+    : LANGS.includes(S.lang) && S.lang !== "en" ? S.lang
+    : (navigator.language || "").toLowerCase().startsWith("fr") ? "fr"
+    : (navigator.language || "").toLowerCase().startsWith("es") ? "es" : "en";
+  for (const code of LANGS) {
+    const b = el("button", { type: "button", "data-lang": code }, code.toUpperCase());
+    b.addEventListener("click", () => setLang(code));
+    $("langs").append(b);
+  }
+  for (const id of ["slotq", "poolq"]) $(id).addEventListener("input", refresh);
+  $("folder").addEventListener("change", refresh);
+  $("theme").addEventListener("change", async () => {
+    try {
+      load(await call("theme", { theme: $("theme").value || null }));
+      if (!S.theme || S.saved) status(t("Saved — IngeTrazo is up to date."));
+    } catch (e) { failed(e); }
+  });
+  $("suggest").addEventListener("click", () => {
+    if (!confirm(t("Replace every choice with the matches by file name?"))) return;
+    mapping = copy(S.suggested);
+    selected = null; refresh(); save();
+  });
+  $("clearall").addEventListener("click", () => {
+    if (!confirm(t("Give every tool its own icon back?"))) return;
+    mapping = { icons: {}, cursors: {} };
+    selected = null; refresh(); save();
+  });
+  $("saveas").addEventListener("click", saveAs);
+  $("load").addEventListener("click", loadSave);
+  $("delete").addEventListener("click", deleteSave);
+  $("libtheme").addEventListener("change", () => {
+    showLibrary($("libtheme").value).catch(failed);
+  });
+  $("importshown").addEventListener("click", importShown);
+  $("importfiles").addEventListener("click", () => $("filepick").click());
+  $("filepick").addEventListener("change", () => {
+    uploadFiles($("filepick").files);
+    $("filepick").value = "";
+  });
+  fileDrop();
+  $("openfolder").addEventListener("click", () => post("open-folder"));
+  $("refresh").addEventListener("click", async () => {
+    await post("refresh");
+    load(await fetchState());
+  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") select(null); });
+  dropZone($("pool"), (payload) => { if (payload.slot) place(payload, null); });
+  splitter();
+  buildRows();
+  load(S);
+  applyTexts();
+}
+start().catch(() => status(t("Not saved: is IngeTrazo still open?"), true));
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48" height="48"
+ viewBox="0 0 48 48"
+ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" baseProfile="tiny">
+<title>look_around</title>
+<desc>IngeTrazo icon, written again at each start. Copy it to make your own.</desc>
+<defs>
+</defs>
+<g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#16a34a" fill-opacity="0.470588" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<polygon fill-rule="evenodd" vector-effect="none" points="24,30 12,9 36,9 " />
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<path vector-effect="none" fill-rule="evenodd" d="M30,30 C30,33.3137 27.3137,36 24,36 C20.6863,36 18,33.3137 18,30 C18,26.6863 20.6863,24 24,24 C27.3137,24 30,26.6863 30,30 Z "/>
+</g>
+
+<g fill="#1f5fbf" fill-opacity="1" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<path vector-effect="none" fill-rule="evenodd" d="M26.2,23.5 C26.2,24.715 25.215,25.7 24,25.7 C22.785,25.7 21.8,24.715 21.8,23.5 C21.8,22.285 22.785,21.3 24,21.3 C25.215,21.3 26.2,22.285 26.2,23.5 Z "/>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#16a34a" stroke-opacity="1" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<path vector-effect="none" fill-rule="evenodd" d="M10.8423,34.794 C12.7997,40.1649 17.952,44 24,44 C30.0489,44 35.2019,40.1638 37.1586,34.7915 "/>
+</g>
+
+<g fill="#16a34a" fill-opacity="1" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<polygon fill-rule="evenodd" vector-effect="none" points="35.6557,29.2883 41.6557,36.2883 32.6557,37.2883 " />
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+</g>
+</svg>

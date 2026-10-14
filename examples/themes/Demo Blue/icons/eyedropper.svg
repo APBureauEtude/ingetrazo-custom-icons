@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48" height="48"
+ viewBox="0 0 48 48"
+ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" baseProfile="tiny">
+<title>eyedropper</title>
+<desc>IngeTrazo icon, written again at each start. Copy it to make your own.</desc>
+<defs>
+</defs>
+<g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(0.85,0,0,0.85,3.6,3.6)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<polyline fill="none" vector-effect="none" points="26.5,17 11,32.5 " />
+<polyline fill="none" vector-effect="none" points="31,21.5 15.5,37 " />
+<polyline fill="none" vector-effect="none" points="11,32.5 8,40 " />
+<polyline fill="none" vector-effect="none" points="15.5,37 8,40 " />
+<polyline fill="none" vector-effect="none" points="23.5,14.5 33.5,24.5 " />
+</g>
+
+<g fill="#1f5fbf" fill-opacity="1" stroke="none" transform="matrix(0.85,0,0,0.85,3.6,3.6)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<path vector-effect="none" fill-rule="evenodd" d="M26.5,11.5 C26.5,7.91015 29.4101,5 33,5 L36,5 C39.5899,5 42.5,7.91015 42.5,11.5 L42.5,14.5 C42.5,18.0899 39.5899,21 36,21 L33,21 C29.4101,21 26.5,18.0899 26.5,14.5 L26.5,11.5 Z "/>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(0.85,0,0,0.85,3.6,3.6)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<polyline fill="none" vector-effect="none" points="29.5,12 35.5,18 " />
+</g>
+
+<g fill="#16a34a" fill-opacity="1" stroke="none" transform="matrix(0.85,0,0,0.85,3.6,3.6)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<circle cx="5.5" cy="43.5" r="2.6"/>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(0.85,0,0,0.85,3.6,3.6)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+</g>
+</svg>

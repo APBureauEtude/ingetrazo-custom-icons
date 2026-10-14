@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48" height="48"
+ viewBox="0 0 48 48"
+ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" baseProfile="tiny">
+<title>eraser</title>
+<desc>IngeTrazo icon, written again at each start. Copy it to make your own.</desc>
+<defs>
+</defs>
+<g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#16a34a" fill-opacity="1" stroke="none" transform="matrix(0.766044,-0.642788,0.642788,0.766044,26,21)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<path vector-effect="none" fill-rule="evenodd" d="M-15,-4.5 C-15,-6.15685 -13.6569,-7.5 -12,-7.5 L-6.6,-7.5 C-4.94315,-7.5 -3.6,-6.15685 -3.6,-4.5 L-3.6,4.5 C-3.6,6.15685 -4.94315,7.5 -6.6,7.5 L-12,7.5 C-13.6569,7.5 -15,6.15685 -15,4.5 L-15,-4.5 Z "/>
+<rect x="-12" y="-7.5" width="8.4" height="15"/>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" transform="matrix(0.766044,-0.642788,0.642788,0.766044,26,21)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<path vector-effect="none" fill-rule="evenodd" d="M-15,-4.5 C-15,-6.15685 -13.6569,-7.5 -12,-7.5 L12,-7.5 C13.6569,-7.5 15,-6.15685 15,-4.5 L15,4.5 C15,6.15685 13.6569,7.5 12,7.5 L-12,7.5 C-13.6569,7.5 -15,6.15685 -15,4.5 L-15,-4.5 Z "/>
+<polyline fill="none" vector-effect="none" points="-3.6,-7.5 -3.6,7.5 " />
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#1f5fbf" fill-opacity="0.666667" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<circle cx="9" cy="40" r="1.6"/>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#1f5fbf" fill-opacity="0.666667" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<circle cx="15" cy="42" r="1.6"/>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#1f5fbf" fill-opacity="0.666667" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<circle cx="12" cy="36" r="1.6"/>
+</g>
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+</g>
+</g>
+</svg>

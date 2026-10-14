@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48" height="48"
+ viewBox="0 0 48 48"
+ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" baseProfile="tiny">
+<title>export_pdf</title>
+<desc>IngeTrazo icon, written again at each start. Copy it to make your own.</desc>
+<defs>
+</defs>
+<g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
+
+<g fill="none" stroke="#1f5fbf" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal" 
+>
+<polyline fill="none" vector-effect="none" points="28,8 10,8 10,40 34,40 34,14 28,8 28,14 34,14 " />
+<polyline fill="none" vector-effect="none" points="17,22 27,22 " />
+<polyline fill="none" vector-effect="none" points="17,28 27,28 " />
+<polyline fill="none" vector-effect="none" points="30,33 42,33 " />
+<polyline fill="none" vector-effect="none" points="38,29 42,33 " />
+<polyline fill="none" vector-effect="none" points="38,37 42,33 " />
+</g>
+</g>
+</svg>
