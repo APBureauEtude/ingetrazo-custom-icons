@@ -26,6 +26,19 @@ Demo Blue is IngeTrazo's own icons recoloured (GPL, like IngeTrazo), with
 its `mapping.json`: copy its folder into `Icônes custom` to try it, or use
 it as a starting point for your own theme.
 
+### Example: the «Workshop Color» theme
+
+`examples/themes/Workshop Color` replaces every icon (123) and every 3D view
+cursor (40, the guide modes of the Tape Measure and the Protractor included)
+with colour drawings: bold outlines, flat fills, IngeTrazo's orange accent.
+The outlines use `currentColor`, so they follow the light and dark themes.
+
+![Workshop Color on a light and on a dark interface](Visuel/workshop-color-icons.png)
+
+Workshop Color is AI-generated (SVG code made with an AI assistant, then
+reviewed by its author): original drawings, GPL like the rest. Its home is
+[ultracat/ingetrazo-workshop-icons](https://github.com/ultracat/ingetrazo-workshop-icons).
+
 ## Install
 
 Version **1.1** — see [CHANGELOG.md](CHANGELOG.md).
