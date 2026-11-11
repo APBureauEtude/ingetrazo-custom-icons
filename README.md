@@ -37,7 +37,10 @@ The outlines use `currentColor`, so they follow the light and dark themes.
 
 Workshop Color is AI-generated (SVG code made with an AI assistant, then
 reviewed by its author): original drawings, GPL like the rest. Its home is
-[ultracat/ingetrazo-workshop-icons](https://github.com/ultracat/ingetrazo-workshop-icons).
+[ultracat/ingetrazo-workshop-icons](https://github.com/ultracat/ingetrazo-workshop-icons),
+which also has an `install.py` that sets it up in one command: it copies the
+theme, makes it the theme in use, and offers to install this extension if it
+is missing.
 
 ## Install
 
